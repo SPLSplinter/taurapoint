@@ -47,10 +47,10 @@ def main():
     print("test:", test)
     p2 = Point2(p1)
     try:
-        assert p2.x == 0
-        assert p2.y == 1
-        assert p2.r == 1
-        assert p2.a == round(pi/2,16)    
+        assert p2.x == p1.x
+        assert p2.y == p1.y
+        assert p2.r == p1.r
+        assert p2.a == p1.a
         print("passed!")
     except Exception as e:
         print("ERROR",e, p2)

@@ -1,3 +1,9 @@
+#############################################
+# Copyright (c) 2015 Fabricio JC Montenegro #
+# 8th november 2015                         #
+# Version 1.0                               #
+#############################################
+
 """Rectangular and polar coordinates representation utility."""
 from math import *
 
@@ -15,6 +21,7 @@ class Point2:
         self.__dict__['y'] = 0.0
         self.__dict__['r'] = 0.0
         self.__dict__['a'] = 0.0
+
         if x == None:
             pass
         elif type(x) == Point2:
@@ -32,6 +39,12 @@ class Point2:
             self.__dict__['y'] = y
             self.__dict__['r'] = sqrt(self.x**2 + self.y**2)
             self.__dict__['a'] = atan2(self.y, self.x)
+        # Python 2 hook
+        elif x.__class__.__name__ == 'Point2':
+            self.__dict__['x'] = x.x
+            self.__dict__['y'] = x.y
+            self.__dict__['r'] = x.r
+            self.__dict__['a'] = x.a
 
     def recalc(self, fromRect=True):
         """Used internally to recalculate the values of one set of coordinates 
